@@ -1,4 +1,4 @@
-# opulent
+# Opulent
 
 > Intelligent Web Templating Engine for Creative Web Developers
 
@@ -24,8 +24,6 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 ```js
 grunt.loadNpmTasks('opulent');
 ```
-
-## The "opulent" task
 
 ### Overview
 In your project's Gruntfile, add a section named `opulent` to the data object passed into `grunt.initConfig()`.
