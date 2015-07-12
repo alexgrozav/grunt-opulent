@@ -11,6 +11,14 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 npm install opulent --save-dev
 ```
 
+Besides grunt, this plugin also requires that you have Ruby >= 2.1.0 and the Opulent gem installed.
+
+```shell
+brew install ruby
+
+gem install opulent
+```
+
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
@@ -26,67 +34,39 @@ In your project's Gruntfile, add a section named `opulent` to the data object pa
 grunt.initConfig({
   opulent: {
     options: {
-      // Task-specific options go here.
+      layout: 'path/to/layout.op',
+      context: 'path/to/context.op'
     },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+    files: [{
+      expand: true,     // Enable dynamic expansion.
+      cwd: 'src',      // Src matches are relative to this path.
+      src: ['**/*.op'], // Actual pattern(s) to match.
+      dest: 'dest/',   // Destination path prefix.
+      ext: '.html',   // Dest filepaths will have this extension.
+      extDot: 'last'   // Extensions in filenames begin after the first dot
+    }]
+  }
 })
 ```
 
 ### Options
 
-#### options.separator
+#### options.layout
 Type: `String`
-Default value: `',  '`
+Default value: false
 
-A string value that is used to do something with whatever.
+A path to a layout file, in which the source files will be yielded.
 
-#### options.punctuation
+#### options.context
 Type: `String`
-Default value: `'.'`
+Default value: false
 
-A string value that is used to do something else with whatever else.
+A path to a JSON or YAML file to be used as variables source.
 
 ### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  opulent: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  opulent: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
-## Release History
-_(Nothing yet)_
-
 ## License
-Copyright (c) 2015 Alex Grozav. Licensed under the MIT license.
+Copyright (c) 2015 Pixevil. Licensed under the MIT license.
