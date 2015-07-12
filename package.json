@@ -1,0 +1,32 @@
+{
+  "name": "opulent",
+  "version": "0.0.1",
+  "description": "Intelligent Web Templating Engine for Creative Web Developers",
+  "homepage": "http://opulent.io",
+  "repository": "http://github.com/opulent/opulent-grunt.git",
+  "author": {
+    "name": "Alex Grozav",
+    "email": "alex@grozav.com",
+    "url": "http://grozav.com"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.8.0",
+    "grunt-contrib-nodeunit": "~0.3.0",
+    "jshint-stylish": "~0.1.5",
+    "load-grunt-tasks": "~0.3.0",
+    "shelljs": "^0.5.1"
+  },
+  "scripts": {
+    "test": "grunt test"
+  }
+}
