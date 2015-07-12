@@ -39,6 +39,11 @@ module.exports = function (grunt) {
         bin.push(options.context);
       }
 
+      // Make sure grunt creates the destination folders if they don't exist
+      if (!grunt.file.exists(file.dest)) {
+        grunt.file.write(file.dest, '');
+      }
+
       shell.exec(bin.join(' '));
     });
   });
